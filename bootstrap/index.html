@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Eye Power</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<div class="container-full">
+
+      <div class="row">
+       
+        <div class="col-lg-12 text-center v-center">
+          
+          <h1>Eye Power</h1>
+          <p class="lead">Review code with your eyes and some heatmaps.</p>
+          
+          <br><br><br>
+          
+          <form class="col-lg-12">
+            <div class="input-group" style="width:800px;text-align:center;margin:0 auto;">
+            <input type="file" id="files" name="files[]" multiple />
+            <output id="list"></output>
+            </div>
+          </form>
+        </div>
+        
+      </div> <!-- /row -->
+      <br><br>
+</div> <!-- /container full -->
+
+<div class="container">
+  
+  	<hr>
+  
+  	<div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>Hello.</h3></div>
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.
+            </div>
+          </div>
+        </div>
+      	<div class="col-md-4">
+        	<div class="panel panel-default">
+            <div class="panel-heading"><h3>Hello.</h3></div>
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.
+            </div>
+          </div>
+        </div>
+      	<div class="col-md-4">
+        	<div class="panel panel-default">
+            <div class="panel-heading"><h3>Hello.</h3></div>
+            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.
+            </div>
+          </div>
+        </div>
+    </div>
+  
+	<div class="row">
+        <div class="col-lg-12">
+        <br><br>
+          <p class="pull-right"><a href="http://www.bootply.com">Template from Bootply</a> &nbsp; ©Copyright 2013 ACME<sup>TM</sup> Brand.</p>
+        <br><br>
+        </div>
+    </div>
+</div>
+
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script>
+      // Check for the various File API support.
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+        // Great success! All the File APIs are supported.
+      } else {
+        alert('The File APIs are not fully supported in this browser.');
+      }
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // files is a FileList of File objects. List some properties.
+        var output = [];
+        for (var i = 0, f; f = files[i]; i++) {
+          output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+          f.size, ' bytes, last modified: ',
+          f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+          '</li>');
+        }
+      document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+      }
+      document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+	</body>
+</html>

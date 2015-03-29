@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="header">
+	<h1></h1>
+<div id="heatmap" class="heatmap">
+	<xmp class="prettyprint linenums">
+	Store.prototype = { _organiseData: function(dataPoint, forceRender)
+	 { var x = dataPoint[this._xField]; var y = dataPoint[this._yField];
+        var radi = this._radi;
+        var store = this._data;
+        var max = this._max;
+        var min = this._min;
+        var value = dataPoint[this._valueField] || 1;
+        var radius = dataPoint.radius || this._cfgRadius || defaultRadius;
+
+        if (!store[x]) {
+          store[x] = [];
+          radi[x] = [];
+        }
+
+        if (!store[x][y]) {
+          store[x][y] = value;
+          radi[x][y] = radius;
+        } else {
+          store[x][y] += value;
+        }
+
+        if (store[x][y] > max) {
+          if (!forceRender) {
+            this._max = store[x][y];
+          } else {
+            this.setDataMax(store[x][y]);
+          }
+          return false;
+        } else{
+          return { 
+            x: x, 
+            y: y,
+            value: value, 
+            radius: radius,
+            min: min,
+            max: max 
+          };
+        }
+    },
+	</xmp>
+</div>
+</body>
+<script type="text/javascript" src="heatmap.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script>
+	var heatmapInstance = h337.create({
+		container: document.querySelector('.heatmap'),
+		radius: 25,
+		maxOpacity: 0.5,
+		blur: 0.95
+	});
+	document.querySelector('.heatmap').onmousemove = function(ev){
+		heatmapInstance.addData({
+			x: ev.layerX,
+			y: ev.layerY,
+			value: 1
+		});
+	};
+</script>
+</html>
